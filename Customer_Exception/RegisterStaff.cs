@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Custom_Exception
+﻿namespace Custom_Exception
 {
     internal class RegisterStaff
     {
@@ -26,19 +20,22 @@ namespace Custom_Exception
                 _name = Convert.ToString(bio);
                 _description = Convert.ToString(bio);
                 _age = Convert.ToInt32(age);
-                if(_age < 18)
+                if (_age < 18)
                 {
-                    throw new NullStaffRegistrationException();
+                    throw new NullStaffRegistrationException("message", _age);
                 }
-                
+
             }
             catch (NullStaffRegistrationException e)
             {
-                Console.WriteLine($"Error: {e.Message}");
+                Console.WriteLine($"Error: {e.Message}, {e.age}/younger is not allowed");
             }
-            catch(Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.TargetSite);
             }
         }
     }
