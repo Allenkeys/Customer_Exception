@@ -8,6 +8,7 @@ namespace Custom_Exception
 {
     public class NullStaffRegistrationException : Exception
     {
+        public override string Message => "Sorry staff registration pending";
         public NullStaffRegistrationException() { }
         public NullStaffRegistrationException(string message) : base(message) 
         { }

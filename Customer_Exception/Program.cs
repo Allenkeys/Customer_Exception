@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            RegisterStaff registerStaff = new RegisterStaff();
+            registerStaff.CreateStaff();
         }
     }
 }
